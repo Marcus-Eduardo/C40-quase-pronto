@@ -66,9 +66,11 @@ class Jogo {
                 carros[indice-1].y = y;//novo
 
                 if (indice === jogador.indice) {//novo
-                    carros[indice - 1].shapeColor = "red";//novo
                     camera.position.x = displayWidth/2;//novo
                     camera.position.y = carros[indice-1].y;//novo
+                    stroke(0);
+                    fill("red");
+                    ellipse(x,y,60,60)
                 }
             }
         }

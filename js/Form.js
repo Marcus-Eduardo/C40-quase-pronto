@@ -3,7 +3,7 @@ class Form {
     this.input = createInput("Nome");
     this.button = createButton("Jogar");
     this.greeting = createElement("h3");
-    console.log(this.button)
+    this.reset = createButton("Resetar");
   }
 
   esconder(){
@@ -20,6 +20,7 @@ class Form {
     //ajeita posição dos elementos html
     this.input.position(displayWidth/2-80, displayHeight/2-120);//novo
     this.button.position(displayWidth/2-20, displayHeight/2-50);//novo
+    this.reset.position(displayWidth-150,20);
 
     //quando clicar no botão
     this.button.mousePressed(() => {
@@ -39,5 +40,11 @@ class Form {
       this.greeting.html("Olá " + jogador.nome);
       this.greeting.position(displayWidth/2-40, displayHeight/2-120);//novo
     });
+    this.reset.mousePressed(()=>{
+      jogador.updateCount(0)
+      jogo.update(0)
+      database.ref("jogadores").remove()
+      location.reload()
+    })
   }
 }
